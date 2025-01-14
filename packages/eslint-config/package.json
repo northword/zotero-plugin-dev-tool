@@ -1,0 +1,56 @@
+{
+  "name": "@zotero-plugin/eslint-config",
+  "type": "module",
+  "version": "0.2.0-beta.19",
+  "packageManager": "pnpm@9.15.2",
+  "description": "ESLint config for zotero plugin.",
+  "license": "AGPL-3.0-or-later",
+  "homepage": "https://github.com/northword/zotero-plugin-scaffold#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/northword/zotero-plugin-scaffold.git"
+  },
+  "bugs": {
+    "url": "https://github.com/northword/zotero-plugin-scaffold/issues"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": "^18.18.0 || >=20.0.0"
+  },
+  "scripts": {
+    "dev": "eslint-config-inspector --config eslint-inspector.config.ts",
+    "build": "pnpm run build:typegen && tsup",
+    "build:typegen": "tsx scripts/typegen.ts",
+    "build:inspector": "eslint-config-inspector build --config eslint-inspector.config.ts",
+    "lint": "eslint --flag unstable_ts_config .",
+    "lint:fix": "pnpm run lint --fix",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm run build"
+  },
+  "peerDependencies": {
+    "eslint": "^9.5.0"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint-config-flat-gitignore": "^0.3.0",
+    "typescript-eslint": "^8.18.2"
+  },
+  "devDependencies": {
+    "@eslint/config-inspector": "^0.6.0",
+    "eslint-typegen": "^0.3.2",
+    "importx": "^0.5.1",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2"
+  }
+}

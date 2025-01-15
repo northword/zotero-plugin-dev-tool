@@ -219,6 +219,8 @@ export interface BuildConfig {
      * @default true
      */
     prefixFluentMessages: boolean;
+
+    dts: string | false;
   };
   prefs: {
     /**

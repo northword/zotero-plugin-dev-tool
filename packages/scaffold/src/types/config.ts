@@ -571,13 +571,6 @@ export interface ReleaseConfig {
     releaseNote: (ctx: Context) => string;
   };
 
-  /**
-   * Release to Gitee
-   *
-   * @todo Not implemented yet
-   */
-  gitee: ReleaseConfig["github"];
-
   hooks: Partial<ReleaseHooks>;
 };
 

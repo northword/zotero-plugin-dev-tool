@@ -4,6 +4,7 @@ import { escapeRegExp } from "es-toolkit";
 import { isCI } from "std-env";
 import { Base } from "../base.js";
 import Bump from "./bump.js";
+import GitHub from "./github.js";
 
 export default class Release extends Base {
   constructor(ctx: Context) {
@@ -35,8 +36,7 @@ export default class Release extends Base {
 
     const isBumpNeeded = this.ctx.release.bumpp.release !== version;
     const isGitHubEnabled = this.isEnabled(release.github.enable);
-    const isGiteeEnabled = this.isEnabled(release.gitee.enable);
-    const isPublishNeeded = isGitHubEnabled || isGiteeEnabled;
+    const isPublishNeeded = isGitHubEnabled;
 
     if (isPublishNeeded && !release.bumpp.execute) {
       this.logger.warn(`The current release needs to run the build after bumping the version number, please configure the build script in 'config.release.bumpp.execute'${isBumpNeeded ? "" : " or run build before run release"}.`);
@@ -55,15 +55,9 @@ export default class Release extends Base {
     // Get changelog
     this.ctx.release.changelog = await this.getChangelog();
 
-    // Publish to GitHub, Gitee
+    // Publish to GitHub
     if (isGitHubEnabled) {
-      const { default: GitHub } = await import("./github.js");
       await new GitHub(this.ctx).run();
-    }
-
-    if (isGiteeEnabled) {
-      // const { default: Gitee } = await import("./gitee.js");
-      // await new Gitee(this.ctx).run();
     }
 
     // TODO: Publish to Zotero's official market

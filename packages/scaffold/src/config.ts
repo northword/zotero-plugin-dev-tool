@@ -100,6 +100,7 @@ const defaultConfig = {
     fluent: {
       prefixFluentMessages: true,
       prefixLocaleFiles: true,
+      dts: "typings/i10n.d.ts",
     },
     prefs: {
       prefix: "",

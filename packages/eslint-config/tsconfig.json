@@ -1,10 +1,6 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["ESNext"],
-    "module": "esnext",
-    "moduleResolution": "bundler",
     "types": ["node"],
     "strict": true,
     "declaration": true,

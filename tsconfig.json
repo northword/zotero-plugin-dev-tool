@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "ESNext",
     "baseUrl": ".",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "paths": {
       "~/packages": [
         "./packages"

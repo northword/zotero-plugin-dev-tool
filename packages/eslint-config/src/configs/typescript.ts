@@ -1,6 +1,6 @@
-import type { Config } from "../types";
+import type { Config } from "../types.js";
 import tseslint from "typescript-eslint";
-import { GLOB_TS, GLOB_TSX } from "../globs";
+import { GLOB_TS, GLOB_TSX } from "../globs.js";
 
 export const typescriptCore = tseslint.config({
   extends: [...tseslint.configs.recommended],

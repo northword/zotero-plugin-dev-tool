@@ -1,3 +1,3 @@
-import { zotero } from "./src/index.ts";
+import { zotero } from "./src";
 
 export default zotero();

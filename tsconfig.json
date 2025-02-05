@@ -3,7 +3,7 @@
     "target": "ESNext",
     "baseUrl": ".",
     "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "nodenext",
     "paths": {
       "~/packages": [
         "./packages"
